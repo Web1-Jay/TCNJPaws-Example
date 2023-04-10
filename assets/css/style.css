@@ -58,7 +58,7 @@ header nav menu {
 }
 
 /*don't show menus nested in a menu that is nested in a nav. aka our submenus*/
-header nav menu menu {
+header nav menu {
     display: none;
 }
 
@@ -140,6 +140,12 @@ nav .button-primary:hover {
     text-decoration: none;
 }
 
+header nav menu button::after {
+    content: '\25BE';
+    padding-left: 10px;
+
+}
+
 /*submenu links*/
 header nav menu li menu li {
   padding: 5px;
@@ -169,11 +175,41 @@ header nav menu button:hover, header nav menu li a:hover {
 
 }
 
-
+@media (max-width: 1310px){
+    header nav .button-primary {
+        display: none;
+    }
+}
+@media (max-width: 1040px) {
+    header nav > menu {
+        flex-direction: column;
+        background-color: var(--dark-blue);
+        width: 100%;
+        align-items: start;
+    }
+    header nav {
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+    header nav .logo {
+        width: 100%;
+        padding: 30px;
+    }
+    #mobile-menu button {
+        background-color: transparent;
+    }
+    header nav > div {
+        width: 100;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
 
 /* Top section */
 #top-section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     width: 80%;
     margin: 60px auto;
@@ -182,11 +218,25 @@ header nav menu button:hover, header nav menu li a:hover {
 }
 
 #top-section div {
-    padding: 30px;
-    width: 430px;
+    padding: 2%;
+    width: 40%;
+    box-sizing: border-box;
 }
 
+#top-section .top-image {
+    width: 60%;
+}
 
+@media (max-width: 930px) {
+    #top-section .top-image {
+        width: 100%;
+        order: -1;
+    }
+    #top-section div {
+        text-align: center;
+        width: 100%;
+    }
+}
 /* Featured Pets */
 
 .featured-pets {
@@ -207,11 +257,16 @@ header nav menu button:hover, header nav menu li a:hover {
 
 .featured-pets div {
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     
 }
-
+@media (max-width: 930px) {
+    .featured-pets img {
+        width: 100%;
+    }
+}
 /*blog*/
 
 #blog {
@@ -222,11 +277,23 @@ header nav menu button:hover, header nav menu li a:hover {
 
 #blog div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     
 
 }
 
+#blog article {
+    width: 30%;
+}
+#blog img {
+    width: 100%;
+}
+@media (max-width: 930px) {
+    #blog article {
+        width: 100%;
+    }
+}
 /*testimonials*/
 #testimonials {
     background-color: var(--teal);
@@ -237,9 +304,24 @@ header nav menu button:hover, header nav menu li a:hover {
 }
 #testimonials div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
-
+#testimonmials button {
+    background-color: transparent;
+}
+#testimonials button.right {
+    rotate: 180deg;
+}
+@media (max-width: 930px) {
+    #testimonials figure {
+        width: 100%;
+        margin: 0px;
+    }
+    #testimonial blockquote {
+        margin: 0px;
+    }
+}
 /*footer */
 
 footer {
@@ -250,6 +332,7 @@ footer {
 
 footer nav > menu {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
